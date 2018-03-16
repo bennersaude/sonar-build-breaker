@@ -1,6 +1,6 @@
 # SonarQube Build Breaker Plugin
 
-[![Build Status](https://api.travis-ci.org/SonarQubeCommunity/sonar-build-breaker.svg)](https://travis-ci.org/SonarQubeCommunity/sonar-build-breaker) [![SonarQube.com Quality Gate status](https://sonarqube.com/api/badges/gate?key=org.sonarqubecommunity.buildbreaker%3Asonar-build-breaker-plugin)](https://sonarqube.com/overview?id=org.sonarqubecommunity.buildbreaker%3Asonar-build-breaker-plugin)
+[![Build Status](https://api.travis-ci.org/bennersaude/sonar-build-breaker.svg)](https://travis-ci.org/bennersaude/sonar-build-breaker) 
 
 ## Compatibility
 
@@ -14,7 +14,7 @@
 
 ## Download and Installation
 
-1. Download the appropriate `sonar-build-breaker-plugin-${version}.jar` file from the [releases page](https://github.com/SonarQubeCommunity/sonar-build-breaker/releases), based on the compatibility chart
+1. Download the appropriate `sonar-build-breaker-plugin-${version}.jar` file from the [releases page](https://github.com/bennersaude/sonar-build-breaker/releases), based on the compatibility chart
 2. Copy the plugin into `/path/to/sonarqube/extensions/plugins/`
 3. Remove older versions of the plugin from `/path/to/sonarqube/extensions/plugins/`, if present
 4. Restart SonarQube
