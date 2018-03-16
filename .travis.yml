@@ -5,6 +5,20 @@ install: true
 jdk:
   - openjdk7
 
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "benner-saude-bot"
+  - git config --local user.email "inovacao.desenvolvimento@benner.com.br"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+  provider: releases
+  api_key:
+    - secure: "mgxW6XG/hpQMp0NNy4livl+gMCZ4HtibZ8ruVeIz878Y2hs9/8lWRVzpda7s0NuqULXq4fQGmiYKge1e34KecTx4Ccw7eCgr01drKHEvCQkiYyECBdfwntACPfB0wOXufojJxxlpPVSv3jE8Bjzjg4dkHX21Y0XVBWvKhfcauDrRjugY/ZJcmyyfmivgRiC+QKytZdNAcP918zORs1ivT5RHurx+gofEJudvgJqkRmsXMi8kJ3SdDEkAY1wsSPio8Z9s08HVXUZ/W/DtN65ER+AwBmRavmqu+5iifzd2aO0hu0BH+JLZBshD0L+0RURAOp2tLmCOjNjrJZtZjz09q4gqdeizqoIWBkyLNckj0Jbx2/PZ213b8gdbFPaZj+6L4yUW2Wz3yGxDjd5QSoa1TNAZT30THErkgAIHYXSxaKiSlfVKXRgERj5DOiB9ysmvIdM310kPSh8qaUdlZZQtIRVSVW+A7mZeqqd+KvDYgaNGvq7b7M/CDOuKsTLeIi9FiszrfW8ICx1OQd4gVu4bG6PqehlI/QY8LETSMWWDGYOR5YwjhH1F5cGGfwd8/8SvIj0wbe4JrG4hHcA/iPJWJpPOo05ndrhPgXgsEsv7JTf9rXfl327mD5ySiihnTEHq471zxmojy4C7RHy/HLodst5leqGOe4QbXYMNwq+sCl8="
+  file: $HOME/build/bennersaude/sonar-build-breaker/target/sonar-build-breaker-plugin-2.3.jar
+  skip_cleanup: true
+  on:
+    tags: true    
+
 script:
   - mvn verify -B -e -V
 
